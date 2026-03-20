@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from 'react'
 import { Phone, Mail, MapPin, Clock, CheckCircle, AlertCircle } from 'lucide-react'
 
+const BASE = import.meta.env.BASE_URL
+
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwpkpvvo'
@@ -45,13 +47,18 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Banner */}
-      <section className="relative bg-navy pt-32 pb-16 lg:pb-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy opacity-90" />
+      <section className="relative pt-32 pb-16 lg:pb-20 overflow-hidden">
+        <img
+          src={`${BASE}hero-contact.png`}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-navy/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-heading text-5xl lg:text-6xl font-bold text-white mb-6">
             Get In Touch
           </h1>
-          <p className="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto">
+          <p className="text-gray-200 text-lg sm:text-xl max-w-2xl mx-auto">
             We'd love to hear from you. Reach out for a consultation or enquiry.
           </p>
         </div>
@@ -62,13 +69,11 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Contact Form */}
-            <div className="bg-white rounded-lg p-8 lg:p-10 shadow-sm order-1">
+            <div className="bg-white rounded-lg p-8 lg:p-10 shadow-sm">
               {status === 'success' ? (
                 <div className="text-center py-12">
                   <CheckCircle size={48} className="text-green-600 mx-auto mb-4" />
-                  <h3 className="font-heading text-2xl font-bold text-navy mb-2">
-                    Message Sent!
-                  </h3>
+                  <h3 className="font-heading text-2xl font-bold text-navy mb-2">Message Sent!</h3>
                   <p className="text-near-black/70 mb-6">
                     Thank you for your enquiry. We'll be in touch shortly.
                   </p>
@@ -90,10 +95,7 @@ export default function ContactPage() {
                       Full Name <span className="text-gold">*</span>
                     </label>
                     <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
+                      type="text" id="name" name="name" required
                       className="w-full px-4 py-3 border border-light-grey rounded focus:outline-none focus:border-gold transition-colors bg-warm-white"
                       placeholder="Your full name"
                     />
@@ -104,10 +106,7 @@ export default function ContactPage() {
                       Email Address <span className="text-gold">*</span>
                     </label>
                     <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
+                      type="email" id="email" name="email" required
                       className="w-full px-4 py-3 border border-light-grey rounded focus:outline-none focus:border-gold transition-colors bg-warm-white"
                       placeholder="you@example.com"
                     />
@@ -118,9 +117,7 @@ export default function ContactPage() {
                       Phone Number
                     </label>
                     <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
+                      type="tel" id="phone" name="phone"
                       className="w-full px-4 py-3 border border-light-grey rounded focus:outline-none focus:border-gold transition-colors bg-warm-white"
                       placeholder="04XX XXX XXX"
                     />
@@ -131,9 +128,7 @@ export default function ContactPage() {
                       Subject <span className="text-gold">*</span>
                     </label>
                     <select
-                      id="subject"
-                      name="subject"
-                      required
+                      id="subject" name="subject" required
                       className="w-full px-4 py-3 border border-light-grey rounded focus:outline-none focus:border-gold transition-colors bg-warm-white appearance-none"
                     >
                       <option value="">Select a service area</option>
@@ -148,10 +143,7 @@ export default function ContactPage() {
                       Message <span className="text-gold">*</span>
                     </label>
                     <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={5}
+                      id="message" name="message" required rows={5}
                       className="w-full px-4 py-3 border border-light-grey rounded focus:outline-none focus:border-gold transition-colors bg-warm-white resize-y"
                       placeholder="How can we help you?"
                     />
@@ -160,7 +152,7 @@ export default function ContactPage() {
                   {status === 'error' && (
                     <div className="flex items-center gap-2 text-red-600 text-sm">
                       <AlertCircle size={16} />
-                      Something went wrong. Please try again or email us directly.
+                      Something went wrong. Please try again or email us directly at info@aclandmark.com.au
                     </div>
                   )}
 
@@ -176,11 +168,9 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Details */}
-            <div className="order-2 space-y-8">
+            <div className="space-y-8">
               <div>
-                <h2 className="font-heading text-2xl font-bold text-navy mb-6">
-                  Contact Details
-                </h2>
+                <h2 className="font-heading text-2xl font-bold text-navy mb-6">Contact Details</h2>
                 <ul className="space-y-5">
                   <li className="flex items-start gap-4">
                     <div className="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center shrink-0">
@@ -222,9 +212,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-semibold text-navy text-sm">Business Hours</p>
-                      <p className="text-near-black/80 text-lg">
-                        Monday – Friday, 9:00 AM – 5:30 PM
-                      </p>
+                      <p className="text-near-black/80 text-lg">Monday – Friday, 9:00 AM – 5:30 PM</p>
                     </div>
                   </li>
                 </ul>

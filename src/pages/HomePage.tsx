@@ -4,11 +4,13 @@ import {
   Building, Home, FileText, Gavel, Briefcase, ChevronRight,
 } from 'lucide-react'
 
+const BASE = import.meta.env.BASE_URL
+
 const teamMembers = [
-  { name: 'Brittany Afif', title: 'PRINCIPAL SOLICITOR', initials: 'BA' },
-  { name: 'Fidesse Phung', title: 'SENIOR SOLICITOR', initials: 'FP' },
-  { name: 'Neil Young', title: 'SENIOR SOLICITOR', initials: 'NY' },
-  { name: 'Melissa Lemus', title: 'LAW CLERK', initials: 'ML' },
+  { name: 'Brittany Afif', title: 'PRINCIPAL SOLICITOR', img: 'team-brittany.png' },
+  { name: 'Fidesse Phung', title: 'SENIOR SOLICITOR', img: 'team-fidesse.png' },
+  { name: 'Neil Young', title: 'SENIOR SOLICITOR', img: 'team-neil.png' },
+  { name: 'Melissa Lemus', title: 'LAW CLERK', img: 'team-melissa.png' },
 ]
 
 const whyChooseUs = [
@@ -45,25 +47,25 @@ const whyChooseUs = [
 ]
 
 const practiceAreas = [
-  { icon: Building, title: 'Banking & Finance', desc: 'Expert advice on financial transactions and loan arrangements.', slug: 'banking-finance' },
-  { icon: Home, title: 'Retail & Commercial Leasing', desc: 'Robust leasing arrangements for landlords and tenants.', slug: 'leasing' },
-  { icon: FileText, title: 'Contract Law', desc: 'Drafting, reviewing, and enforcing business contracts.', slug: 'contract-law' },
-  { icon: Gavel, title: 'Civil Litigation', desc: 'Pragmatic dispute resolution and legal representation.', slug: 'litigation' },
-  { icon: Briefcase, title: 'Commercial Law', desc: 'Strategic legal support aligned with business objectives.', slug: 'commercial-law' },
-  { icon: Home, title: 'Conveyancing', desc: 'Efficient property transactions with confidence.', slug: 'conveyancing' },
+  { icon: Building, title: 'Banking & Finance', desc: 'Expert advice on financial transactions and loan arrangements.' },
+  { icon: Home, title: 'Retail & Commercial Leasing', desc: 'Robust leasing arrangements for landlords and tenants.' },
+  { icon: FileText, title: 'Contract Law', desc: 'Drafting, reviewing, and enforcing business contracts.' },
+  { icon: Gavel, title: 'Civil Litigation', desc: 'Pragmatic dispute resolution and legal representation.' },
+  { icon: Briefcase, title: 'Commercial Law', desc: 'Strategic legal support aligned with business objectives.' },
+  { icon: Home, title: 'Conveyancing', desc: 'Efficient property transactions with confidence.' },
 ]
 
 export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-navy overflow-hidden">
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/70" />
-        {/* Subtle pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.05) 35px, rgba(255,255,255,.05) 70px)',
-        }} />
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        <img
+          src={`${BASE}hero-home.png`}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/40" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <p className="text-gold tracking-[0.25em] uppercase text-sm font-semibold mb-6">
@@ -71,9 +73,9 @@ export default function HomePage() {
           </p>
           <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight max-w-3xl">
             Your Legal Anchor.{' '}
-            <span className="text-gold">Your Trusted Guide.</span>
+            <span className="text-gold italic">Your Trusted Guide.</span>
           </h1>
-          <p className="mt-6 text-gray-300 text-lg sm:text-xl max-w-2xl leading-relaxed">
+          <p className="mt-6 text-gray-200 text-lg sm:text-xl max-w-2xl leading-relaxed">
             Direction, clarity, and confidence across banking & finance, commercial law, and civil litigation.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -85,7 +87,7 @@ export default function HomePage() {
             </Link>
             <Link
               to="/contact"
-              className="border-2 border-white/30 hover:border-white text-white px-8 py-3.5 rounded font-semibold text-lg transition-colors text-center"
+              className="border-2 border-white/40 hover:border-white text-white px-8 py-3.5 rounded font-semibold text-lg transition-colors text-center"
             >
               Contact Us
             </Link>
@@ -98,7 +100,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div className="flex gap-6">
-              <div className="w-1 bg-gold rounded-full shrink-0 hidden sm:block" />
+              <div className="w-1 bg-gold rounded-full shrink-0 self-stretch hidden sm:block" />
               <div>
                 <p className="text-gold tracking-[0.2em] uppercase text-sm font-semibold mb-2">About Us</p>
                 <h2 className="font-heading text-4xl lg:text-5xl font-bold text-navy">
@@ -127,11 +129,13 @@ export default function HomePage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {teamMembers.map((member) => (
               <div key={member.name} className="text-center group">
-                {/* Photo placeholder */}
-                <div className="aspect-[3/4] bg-navy-light rounded-lg mb-4 overflow-hidden flex items-center justify-center border border-white/10 group-hover:border-gold/30 transition-colors">
-                  <span className="font-heading text-4xl lg:text-5xl text-gold/60 font-bold">
-                    {member.initials}
-                  </span>
+                <div className="aspect-[3/4] rounded-lg mb-4 overflow-hidden">
+                  <img
+                    src={`${BASE}${member.img}`}
+                    alt={member.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
                 <h3 className="font-heading text-lg lg:text-xl font-semibold text-white">
                   {member.name}
@@ -156,9 +160,7 @@ export default function HomePage() {
                 className="bg-white rounded-lg p-8 border-t-4 border-gold shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
                 <item.icon size={32} className="text-gold mb-4" />
-                <h3 className="font-heading text-xl font-bold text-navy mb-3">
-                  {item.title}
-                </h3>
+                <h3 className="font-heading text-xl font-bold text-navy mb-3">{item.title}</h3>
                 <p className="text-near-black/70 leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -168,7 +170,6 @@ export default function HomePage() {
 
       {/* Pull-Quote Banner */}
       <section className="bg-navy py-20 lg:py-24 relative overflow-hidden">
-        {/* Subtle texture */}
         <div className="absolute inset-0 opacity-5" style={{
           backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(255,255,255,.1) 1px, transparent 1px)',
           backgroundSize: '30px 30px',
@@ -194,16 +195,14 @@ export default function HomePage() {
             {practiceAreas.map((area) => (
               <div
                 key={area.title}
-                className="bg-white rounded-lg p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
+                className="bg-white rounded-lg p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
                 <area.icon size={32} className="text-gold mb-4" />
-                <h3 className="font-heading text-xl font-bold text-navy mb-3">
-                  {area.title}
-                </h3>
+                <h3 className="font-heading text-xl font-bold text-navy mb-3">{area.title}</h3>
                 <p className="text-near-black/70 leading-relaxed mb-4">{area.desc}</p>
                 <Link
                   to="/services"
-                  className="inline-flex items-center text-gold font-semibold hover:gap-2 gap-1 transition-all"
+                  className="inline-flex items-center gap-1 text-gold font-semibold hover:gap-2 transition-all"
                 >
                   Learn More <ChevronRight size={16} />
                 </Link>
@@ -214,8 +213,14 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 lg:py-28 bg-navy overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy" />
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        <img
+          src={`${BASE}cta-bg.png`}
+          alt=""
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-navy/80" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-heading text-4xl lg:text-5xl font-bold text-white mb-6">
             Ready to Take the Next Step?

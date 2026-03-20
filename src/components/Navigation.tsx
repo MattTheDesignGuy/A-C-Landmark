@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router'
 import { Menu, X } from 'lucide-react'
 
+const BASE = import.meta.env.BASE_URL
+
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -19,22 +21,21 @@ export default function Navigation() {
     setIsOpen(false)
   }, [location])
 
-  const navBg = scrolled || !isHome
-    ? 'bg-white/95 backdrop-blur-md shadow-sm'
-    : 'bg-transparent'
-  const textColor = scrolled || !isHome ? 'text-navy' : 'text-white'
-  const logoColor = scrolled || !isHome ? 'text-navy' : 'text-white'
-  const goldAccent = scrolled || !isHome ? 'text-gold' : 'text-gold'
+  const transparent = isHome && !scrolled
+  const navBg = transparent ? 'bg-transparent' : 'bg-white/95 backdrop-blur-md shadow-sm'
+  const textColor = transparent ? 'text-white' : 'text-navy'
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <span className={`font-heading text-2xl font-bold ${logoColor} transition-colors`}>
-              A&C <span className={goldAccent}>Landmark</span>
-            </span>
+          <Link to="/" className="flex items-center">
+            <img
+              src={`${BASE}${transparent ? 'AC-white-logo.webp' : 'AC-black-logo.webp'}`}
+              alt="A&C Landmark"
+              className="h-10 w-auto transition-opacity duration-300"
+            />
           </Link>
 
           {/* Desktop Nav */}
