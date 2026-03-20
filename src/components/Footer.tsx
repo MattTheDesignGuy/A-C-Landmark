@@ -1,6 +1,8 @@
 import { Link } from 'react-router'
 import { Mail, Phone, MapPin } from 'lucide-react'
 
+const BASE = import.meta.env.BASE_URL
+
 export default function Footer() {
   return (
     <footer className="bg-navy">
@@ -11,9 +13,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <span className="font-heading text-2xl font-bold text-white">
-              A&C <span className="text-gold">Landmark</span>
-            </span>
+            <img
+              src={`${BASE}AC-white-logo.webp`}
+              alt="A&C Landmark"
+              className="h-10 w-auto"
+            />
             <p className="mt-4 text-gray-400 font-heading italic text-lg">
               Your Legal Anchor. Your Trusted Guide.
             </p>

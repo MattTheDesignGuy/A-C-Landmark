@@ -177,7 +177,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="font-heading text-gold text-6xl leading-none block mb-4">&ldquo;</span>
           <blockquote className="font-heading text-2xl sm:text-3xl lg:text-4xl text-white italic leading-snug">
-            We pride ourselves on professionalism, clarity, and results.
+            We pride ourselves on professionalism,{' '}<br />clarity, and results.
           </blockquote>
           <p className="mt-6 text-gold tracking-[0.2em] uppercase text-sm font-semibold">
             — A&C Landmark
