@@ -1,74 +1,80 @@
+import { Link } from 'react-router'
 import { Mail, Phone, MapPin } from 'lucide-react'
-
-const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
-]
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400">
+    <footer className="bg-navy">
+      {/* Gold accent line */}
+      <div className="h-1 bg-gold" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
-          <div className="lg:col-span-2">
-            <a href="#" className="text-2xl font-bold text-white">
-              A&amp;C <span className="text-amber-500">Landmark</span>
-            </a>
-            <p className="mt-4 text-sm leading-relaxed max-w-xs">
-              Premium architectural design and construction services.
-              Building landmark spaces across Australia for over 20 years.
+          <div>
+            <span className="font-heading text-2xl font-bold text-white">
+              A&C <span className="text-gold">Landmark</span>
+            </span>
+            <p className="mt-4 text-gray-400 font-heading italic text-lg">
+              Your Legal Anchor. Your Trusted Guide.
             </p>
           </div>
 
-          {/* Quick links */}
+          {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-sm hover:text-amber-400 transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+            <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/" className="text-gray-400 hover:text-gold transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="text-gray-400 hover:text-gold transition-colors">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-gray-400 hover:text-gold transition-colors">
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Contact Details */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Contact</h4>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <MapPin size={15} className="text-amber-500 mt-0.5 flex-shrink-0" />
-                123 Landmark Avenue, Sydney NSW 2000
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone size={15} className="text-amber-500 flex-shrink-0" />
-                <a href="tel:+61200000000" className="hover:text-amber-400 transition-colors">
-                  +61 2 0000 0000
+            <h3 className="text-white font-semibold text-lg mb-4">Contact</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3 text-gray-400">
+                <Phone size={18} className="text-gold mt-0.5 shrink-0" />
+                <a href="tel:0413200588" className="hover:text-gold transition-colors">
+                  0413 200 588
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail size={15} className="text-amber-500 flex-shrink-0" />
-                <a href="mailto:hello@aclandmark.com.au" className="hover:text-amber-400 transition-colors">
-                  hello@aclandmark.com.au
+              <li className="flex items-start gap-3 text-gray-400">
+                <Mail size={18} className="text-gold mt-0.5 shrink-0" />
+                <a href="mailto:info@aclandmark.com.au" className="hover:text-gold transition-colors">
+                  info@aclandmark.com.au
                 </a>
+              </li>
+              <li className="flex items-start gap-3 text-gray-400">
+                <MapPin size={18} className="text-gold mt-0.5 shrink-0" />
+                <span>Suite 2.04 Level 2, 20-22 Albert Road, South Melbourne VIC 3205</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm">
-          <span>© {new Date().getFullYear()} A&amp;C Landmark. All rights reserved.</span>
-          <span>Built with ♥ in Australia</span>
+      {/* Bottom bar */}
+      <div className="border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-gray-500 text-sm">
+            &copy; 2026 A&C Landmark. All rights reserved.
+          </p>
+          <Link to="/contact" className="text-gray-500 hover:text-gold text-sm transition-colors">
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>
