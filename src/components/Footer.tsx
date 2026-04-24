@@ -11,9 +11,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <span className="font-heading text-2xl font-bold text-white">
-              A&C <span className="text-gold">Landmark</span>
-            </span>
+            <img
+              src={`${import.meta.env.BASE_URL}logo-horizontal-white.svg`}
+              alt="A&C Landmark"
+              className="h-8 w-auto"
+            />
             <p className="mt-4 text-gray-400 font-heading italic text-lg">
               Your Legal Anchor. Your Trusted Guide.
             </p>
