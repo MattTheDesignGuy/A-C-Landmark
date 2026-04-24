@@ -62,7 +62,7 @@ export default function HomePage() {
         <img
           src={`${BASE}hero-home.png`}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-[center_75%]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/40" />
 
@@ -175,7 +175,7 @@ export default function HomePage() {
         }} />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="font-heading text-gold text-6xl leading-none block mb-4">&ldquo;</span>
-          <blockquote className="font-heading text-2xl sm:text-3xl lg:text-4xl text-white italic leading-snug">
+          <blockquote className="font-heading text-xl sm:text-2xl lg:text-3xl text-white italic leading-snug whitespace-nowrap">
             We pride ourselves on professionalism, clarity, and results.
           </blockquote>
           <p className="mt-6 text-gold tracking-[0.2em] uppercase text-sm font-semibold">
