@@ -8,7 +8,6 @@ const BASE = import.meta.env.BASE_URL
 
 const teamMembers = [
   { name: 'Brittany Afif', title: 'PRINCIPAL SOLICITOR', img: 'team-brittany.png' },
-  { name: 'Fidesse Phung', title: 'SENIOR SOLICITOR', img: 'team-fidesse.png' },
   { name: 'Neil Young', title: 'SENIOR SOLICITOR', img: 'team-neil.png' },
   { name: 'Melissa Lemus', title: 'LAW CLERK', img: 'team-melissa.png' },
 ]
@@ -126,7 +125,7 @@ export default function HomePage() {
           <h2 className="font-heading text-4xl lg:text-5xl font-bold text-white text-center mb-16">
             Our People
           </h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
             {teamMembers.map((member) => (
               <div key={member.name} className="text-center group">
                 <div className="aspect-[3/4] rounded-lg mb-4 overflow-hidden">
