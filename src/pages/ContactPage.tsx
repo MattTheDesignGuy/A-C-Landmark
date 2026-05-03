@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useForm, ValidationError } from '@formspree/react'
-import { Turnstile } from '@marsidev/react-turnstile'
 import { Phone, Mail, MapPin, Clock, CheckCircle } from 'lucide-react'
 
 const BASE = import.meta.env.BASE_URL
+const FORMSPREE_FORM_ID = 'xpqbqogj'
 const REVERT_AFTER_MS = 5_000
 const BANNER_DURATION_MS = 5_000
-const TURNSTILE_SITE_KEY = '0x4AAAAAADIY93eQBf6q7UgI'
 
 const subjects = [
   'Banking & Finance',
@@ -161,7 +160,7 @@ export default function ContactPage() {
 }
 
 function ContactForm({ onSuccess }: { onSuccess: () => void }) {
-  const [state, handleSubmit] = useForm('xvzlzrwg')
+  const [state, handleSubmit] = useForm(FORMSPREE_FORM_ID)
 
   useEffect(() => {
     if (state.succeeded) onSuccess()
@@ -172,8 +171,6 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
       <h2 className="font-heading text-2xl font-bold text-navy mb-2">
         Send Us a Message
       </h2>
-
-      <input type="hidden" name="_subject" value="New enquiry from A&C Landmark website" />
 
       <div>
         <label htmlFor="name" className="block text-sm font-semibold text-navy mb-1.5">
@@ -212,11 +209,11 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
       </div>
 
       <div>
-        <label htmlFor="subject" className="block text-sm font-semibold text-navy mb-1.5">
+        <label htmlFor="enquiryType" className="block text-sm font-semibold text-navy mb-1.5">
           Subject <span className="text-gold">*</span>
         </label>
         <select
-          id="subject" name="subject" required defaultValue=""
+          id="enquiryType" name="enquiryType" required defaultValue=""
           className="w-full px-4 py-3 border border-light-grey rounded focus:outline-none focus:border-gold transition-colors bg-warm-white appearance-none"
         >
           <option value="" disabled>Select a service area</option>
@@ -224,7 +221,7 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
             <option key={s} value={s}>{s}</option>
           ))}
         </select>
-        <ValidationError prefix="Subject" field="subject" errors={state.errors} className="mt-1 text-sm text-red-600" />
+        <ValidationError prefix="Enquiry type" field="enquiryType" errors={state.errors} className="mt-1 text-sm text-red-600" />
       </div>
 
       <div>
@@ -239,7 +236,7 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
         <ValidationError prefix="Message" field="message" errors={state.errors} className="mt-1 text-sm text-red-600" />
       </div>
 
-      <Turnstile siteKey={TURNSTILE_SITE_KEY} options={{ theme: 'light' }} />
+      <ValidationError errors={state.errors} className="text-sm text-red-600" />
 
       <button
         type="submit"
