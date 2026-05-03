@@ -1,11 +1,7 @@
-import { useState, type FormEvent } from 'react'
-import { Phone, Mail, MapPin, Clock, CheckCircle, AlertCircle } from 'lucide-react'
+import { useForm, ValidationError } from '@formspree/react'
+import { Phone, Mail, MapPin, Clock, CheckCircle } from 'lucide-react'
 
 const BASE = import.meta.env.BASE_URL
-
-type FormStatus = 'idle' | 'sending' | 'success' | 'error'
-
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwpkpvvo'
 
 const subjects = [
   'Banking & Finance',
@@ -18,31 +14,7 @@ const subjects = [
 ]
 
 export default function ContactPage() {
-  const [status, setStatus] = useState<FormStatus>('idle')
-
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setStatus('sending')
-
-    const form = e.currentTarget
-    const data = new FormData(form)
-
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' },
-      })
-      if (res.ok) {
-        setStatus('success')
-        form.reset()
-      } else {
-        setStatus('error')
-      }
-    } catch {
-      setStatus('error')
-    }
-  }
+  const [state, handleSubmit] = useForm('xvzlzrwg')
 
   return (
     <>
@@ -70,25 +42,22 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Contact Form */}
             <div className="bg-white rounded-lg p-8 lg:p-10 shadow-sm">
-              {status === 'success' ? (
+              {state.succeeded ? (
                 <div className="text-center py-12">
                   <CheckCircle size={48} className="text-green-600 mx-auto mb-4" />
-                  <h3 className="font-heading text-2xl font-bold text-navy mb-2">Message Sent!</h3>
-                  <p className="text-near-black/70 mb-6">
-                    Thank you for your enquiry. We'll be in touch shortly.
+                  <h2 className="font-heading text-2xl font-bold text-navy mb-2">Thank you</h2>
+                  <p className="text-near-black/80">
+                    Your enquiry has been received. A member of our team will be in touch shortly.
                   </p>
-                  <button
-                    onClick={() => setStatus('idle')}
-                    className="text-gold font-semibold hover:underline"
-                  >
-                    Send another message
-                  </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <h2 className="font-heading text-2xl font-bold text-navy mb-2">
                     Send Us a Message
                   </h2>
+
+                  <input type="hidden" name="_subject" value="New enquiry from A&C Landmark website" />
+                  <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
 
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-navy mb-1.5">
@@ -99,6 +68,7 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 border border-light-grey rounded focus:outline-none focus:border-gold transition-colors bg-warm-white"
                       placeholder="Your full name"
                     />
+                    <ValidationError prefix="Name" field="name" errors={state.errors} className="mt-1 text-sm text-red-600" />
                   </div>
 
                   <div>
@@ -110,6 +80,7 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 border border-light-grey rounded focus:outline-none focus:border-gold transition-colors bg-warm-white"
                       placeholder="you@example.com"
                     />
+                    <ValidationError prefix="Email" field="email" errors={state.errors} className="mt-1 text-sm text-red-600" />
                   </div>
 
                   <div>
@@ -121,6 +92,7 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 border border-light-grey rounded focus:outline-none focus:border-gold transition-colors bg-warm-white"
                       placeholder="04XX XXX XXX"
                     />
+                    <ValidationError prefix="Phone" field="phone" errors={state.errors} className="mt-1 text-sm text-red-600" />
                   </div>
 
                   <div>
@@ -128,14 +100,15 @@ export default function ContactPage() {
                       Subject <span className="text-gold">*</span>
                     </label>
                     <select
-                      id="subject" name="subject" required
+                      id="subject" name="subject" required defaultValue=""
                       className="w-full px-4 py-3 border border-light-grey rounded focus:outline-none focus:border-gold transition-colors bg-warm-white appearance-none"
                     >
-                      <option value="">Select a service area</option>
+                      <option value="" disabled>Select a service area</option>
                       {subjects.map((s) => (
                         <option key={s} value={s}>{s}</option>
                       ))}
                     </select>
+                    <ValidationError prefix="Subject" field="subject" errors={state.errors} className="mt-1 text-sm text-red-600" />
                   </div>
 
                   <div>
@@ -147,21 +120,15 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 border border-light-grey rounded focus:outline-none focus:border-gold transition-colors bg-warm-white resize-y"
                       placeholder="How can we help you?"
                     />
+                    <ValidationError prefix="Message" field="message" errors={state.errors} className="mt-1 text-sm text-red-600" />
                   </div>
-
-                  {status === 'error' && (
-                    <div className="flex items-center gap-2 text-red-600 text-sm">
-                      <AlertCircle size={16} />
-                      Something went wrong. Please try again or email us directly at info@aclandmark.com.au
-                    </div>
-                  )}
 
                   <button
                     type="submit"
-                    disabled={status === 'sending'}
+                    disabled={state.submitting}
                     className="w-full bg-gold hover:bg-gold-hover disabled:opacity-60 text-white px-8 py-3.5 rounded font-semibold text-lg transition-colors"
                   >
-                    {status === 'sending' ? 'Sending...' : 'Send Enquiry'}
+                    {state.submitting ? 'Sending…' : 'Send Enquiry'}
                   </button>
                 </form>
               )}
