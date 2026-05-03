@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useForm, ValidationError } from '@formspree/react'
 import { Phone, Mail, MapPin, Clock, CheckCircle } from 'lucide-react'
 
 const BASE = import.meta.env.BASE_URL
-const REVERT_AFTER_MS = 10_000
+const REVERT_AFTER_MS = 5_000
 const BANNER_DURATION_MS = 5_000
 
 const subjects = [
@@ -22,29 +22,23 @@ export default function ContactPage() {
   const [view, setView] = useState<View>('form')
   const [formKey, setFormKey] = useState(0)
   const [showBanner, setShowBanner] = useState(false)
-  const [secondsLeft, setSecondsLeft] = useState(REVERT_AFTER_MS / 1000)
 
-  function handleSuccess() {
+  const handleSuccess = useCallback(() => {
     setView('thanks')
-    setSecondsLeft(REVERT_AFTER_MS / 1000)
-  }
+  }, [])
 
-  function revertToForm() {
+  const revertToForm = useCallback(() => {
     setView('form')
     setFormKey((k) => k + 1)
     setShowBanner(true)
-  }
+  }, [])
 
-  // Auto-revert countdown
+  // Auto-revert after success
   useEffect(() => {
     if (view !== 'thanks') return
-    const tick = setInterval(() => setSecondsLeft((s) => Math.max(0, s - 1)), 1000)
     const revert = setTimeout(revertToForm, REVERT_AFTER_MS)
-    return () => {
-      clearInterval(tick)
-      clearTimeout(revert)
-    }
-  }, [view])
+    return () => clearTimeout(revert)
+  }, [view, revertToForm])
 
   // Hide banner after a few seconds
   useEffect(() => {
@@ -92,9 +86,6 @@ export default function ContactPage() {
                   >
                     Send another message
                   </button>
-                  <p className="mt-4 text-sm text-near-black/60">
-                    Returning to form in {secondsLeft}s…
-                  </p>
                 </div>
               ) : (
                 <>
@@ -181,7 +172,14 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
       </h2>
 
       <input type="hidden" name="_subject" value="New enquiry from A&C Landmark website" />
-      <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
+      <input
+        type="text"
+        name="_gotcha"
+        tabIndex={-1}
+        autoComplete="off"
+        style={{ position: 'absolute', left: '-9999px' }}
+        aria-hidden="true"
+      />
 
       <div>
         <label htmlFor="name" className="block text-sm font-semibold text-navy mb-1.5">
