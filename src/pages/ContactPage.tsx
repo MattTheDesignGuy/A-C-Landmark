@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useForm, ValidationError } from '@formspree/react'
+import { Turnstile } from '@marsidev/react-turnstile'
 import { Phone, Mail, MapPin, Clock, CheckCircle } from 'lucide-react'
 
 const BASE = import.meta.env.BASE_URL
 const REVERT_AFTER_MS = 5_000
 const BANNER_DURATION_MS = 5_000
+const TURNSTILE_SITE_KEY = '0x4AAAAAADIY93eQBf6q7UgI'
 
 const subjects = [
   'Banking & Finance',
@@ -236,6 +238,8 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
         />
         <ValidationError prefix="Message" field="message" errors={state.errors} className="mt-1 text-sm text-red-600" />
       </div>
+
+      <Turnstile siteKey={TURNSTILE_SITE_KEY} options={{ theme: 'light' }} />
 
       <button
         type="submit"
