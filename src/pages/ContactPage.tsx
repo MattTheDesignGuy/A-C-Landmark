@@ -172,14 +172,6 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
       </h2>
 
       <input type="hidden" name="_subject" value="New enquiry from A&C Landmark website" />
-      <input
-        type="text"
-        name="_gotcha"
-        tabIndex={-1}
-        autoComplete="off"
-        style={{ position: 'absolute', left: '-9999px' }}
-        aria-hidden="true"
-      />
 
       <div>
         <label htmlFor="name" className="block text-sm font-semibold text-navy mb-1.5">
