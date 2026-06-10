@@ -49,8 +49,8 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-gray-400">
                 <Phone size={18} className="text-gold mt-0.5 shrink-0" />
-                <a href="tel:0413200588" className="hover:text-gold transition-colors">
-                  0413 200 588
+                <a href="tel:0390018570" className="hover:text-gold transition-colors">
+                  (03) 9001 8570
                 </a>
               </li>
               <li className="flex items-start gap-3 text-gray-400">
@@ -74,7 +74,7 @@ export default function Footer() {
           <p className="text-gray-500 text-sm">
             &copy; 2026 A&C Landmark. All rights reserved.
           </p>
-          <Link to="/contact" className="text-gray-500 hover:text-gold text-sm transition-colors">
+          <Link to="/privacy" className="text-gray-500 hover:text-gold text-sm transition-colors">
             Privacy Policy
           </Link>
         </div>

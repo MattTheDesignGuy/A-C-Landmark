@@ -27,7 +27,7 @@ const services = [
   {
     title: 'Contract Law',
     img: 'service-contract.png',
-    overview: 'Contracts are the foundation of every business deal — we make sure yours hold up.',
+    overview: 'Contracts are the foundation of every business deal. We make sure yours hold up.',
     items: [
       'Drafting, reviewing, and advising on contracts',
       'Negotiation support',
@@ -37,7 +37,7 @@ const services = [
   {
     title: 'Civil Litigation',
     img: 'service-litigation.png',
-    overview: "When disputes arise, we're in your corner — aiming for pragmatic resolutions and ready to fight when it counts.",
+    overview: "When disputes arise, we're in your corner. We aim for pragmatic resolutions and are ready to fight when it counts.",
     items: [
       'Contract disputes',
       'Debt recovery',

@@ -53,7 +53,7 @@ export default function ContactPage() {
       {/* Hero Banner */}
       <section className="relative pt-32 pb-16 lg:pb-20 overflow-hidden">
         <img
-          src={`${BASE}hero-contact.png`}
+          src={`${BASE}hero-services.png`}
           alt=""
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
@@ -112,8 +112,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-semibold text-navy text-sm">Phone</p>
-                      <a href="tel:0413200588" className="text-near-black/80 text-lg hover:text-gold transition-colors">
-                        0413 200 588
+                      <a href="tel:0390018570" className="text-near-black/80 text-lg hover:text-gold transition-colors">
+                        (03) 9001 8570
                       </a>
                     </div>
                   </li>
@@ -198,10 +198,10 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
 
       <div>
         <label htmlFor="phone" className="block text-sm font-semibold text-navy mb-1.5">
-          Phone Number
+          Mobile Number <span className="text-gold">*</span>
         </label>
         <input
-          type="tel" id="phone" name="phone"
+          type="tel" id="phone" name="phone" required
           className="w-full px-4 py-3 border border-light-grey rounded focus:outline-none focus:border-gold transition-colors bg-warm-white"
           placeholder="04XX XXX XXX"
         />

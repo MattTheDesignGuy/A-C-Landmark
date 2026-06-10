@@ -35,13 +35,13 @@ const whyChooseUs = [
   },
   {
     icon: Calendar,
-    title: '9+ Years of Legal Experience',
-    desc: 'Spanning banking, finance, commercial law, and property — we anticipate challenges and apply efficient strategies.',
+    title: '39+ Years of Legal Experience',
+    desc: 'Spanning banking, finance, commercial law, property, litigation, wills and estates we anticipate challenges and apply efficient strategies.',
   },
   {
     icon: Scale,
     title: 'Integrity & Professionalism',
-    desc: "Ethics isn't a brand value — it's a promise. We uphold the highest standards in all our dealings.",
+    desc: "Ethics isn't a brand value; it's a promise. We uphold the highest standards in all our dealings.",
   },
 ]
 
@@ -75,7 +75,7 @@ export default function HomePage() {
             <span className="text-gold italic">Your Trusted Guide.</span>
           </h1>
           <p className="mt-6 text-gray-200 text-lg sm:text-xl max-w-2xl leading-relaxed">
-            Direction, clarity, and confidence across banking & finance, commercial law, and civil litigation.
+            Direction, clarity, and confidence — trusted legal guidance for individuals and businesses at every stage.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <Link
@@ -109,10 +109,13 @@ export default function HomePage() {
             </div>
             <div className="space-y-6 text-near-black/80 text-lg leading-relaxed">
               <p>
-                A&C Landmark was founded with a simple but powerful belief: that legal support should serve as a compass — guiding clients with certainty, acting with precision, and always standing firm. Whether you're a business seeking strategic legal insight or an individual managing personal or professional transitions, we're here as your steadfast partner.
+                At A&C Landmark, we understand that engaging a lawyer is about more than solving a legal issue; it is about having someone you can trust to protect your interests and guide you through important decisions with confidence.
               </p>
               <p>
-                Our clients range from private lenders and corporate entities to property developers and professionals. No matter your legal needs, our team is committed to clarity, integrity, and excellence in every transaction and dispute.
+                We build long-term relationships with our clients by providing practical advice, clear communication, and dependable outcomes. Whether you're purchasing property, growing a business, navigating a dispute, or planning for the future, our team is committed to delivering strategic legal solutions with integrity, professionalism, and genuine care.
+              </p>
+              <p>
+                Trusted by individuals, business owners, investors, and property professionals alike, we pride ourselves on being responsive, approachable, and steadfast advocates for our clients at every stage of their journey.
               </p>
             </div>
           </div>

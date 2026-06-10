@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
 import ContactPage from './pages/ContactPage'
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -34,6 +35,7 @@ const router = createHashRouter([
       { path: '/', element: <HomePage /> },
       { path: '/services', element: <ServicesPage /> },
       { path: '/contact', element: <ContactPage /> },
+      { path: '/privacy', element: <PrivacyPolicyPage /> },
     ],
   },
 ])
