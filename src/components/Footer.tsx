@@ -74,9 +74,13 @@ export default function Footer() {
           <p className="text-gray-500 text-sm">
             &copy; 2026 A&C Landmark. All rights reserved.
           </p>
-          <Link to="/privacy" className="text-gray-500 hover:text-gold text-sm transition-colors">
-            Privacy Policy
-          </Link>
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+            <Link to="/privacy" className="text-gray-500 hover:text-gold text-sm transition-colors">Privacy Policy</Link>
+            <Link to="/cookie-policy" className="text-gray-500 hover:text-gold text-sm transition-colors">Cookie Policy</Link>
+            <Link to="/disclaimer" className="text-gray-500 hover:text-gold text-sm transition-colors">Disclaimer</Link>
+            <Link to="/terms" className="text-gray-500 hover:text-gold text-sm transition-colors">Terms of Use</Link>
+            <Link to="/modern-slavery" className="text-gray-500 hover:text-gold text-sm transition-colors">Modern Slavery Policy</Link>
+          </div>
         </div>
       </div>
     </footer>

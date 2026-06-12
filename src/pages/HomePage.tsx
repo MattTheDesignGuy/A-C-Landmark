@@ -75,7 +75,7 @@ export default function HomePage() {
             <span className="text-gold italic">Your Trusted Guide.</span>
           </h1>
           <p className="mt-6 text-gray-200 text-lg sm:text-xl max-w-2xl leading-relaxed">
-            Direction, clarity, and confidence — trusted legal guidance for individuals and businesses at every stage.
+            Direction, clarity, and confidence. Trusted legal guidance for individuals and businesses at every stage.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <Link
