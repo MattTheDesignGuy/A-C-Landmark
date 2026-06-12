@@ -3,7 +3,28 @@
     "allow": [
       "Bash(git checkout:*)",
       "Bash(npm install:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(gh pr create --title 'UI tweaks: hero image position and quote single-line' --body ' *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git pull *)",
+      "Bash(git merge *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npx tsc *)",
+      "Bash(gh run *)",
+      "WebFetch(domain:thedesignguy.com.au)",
+      "WebFetch(domain:mattthedesignguy.github.io)",
+      "Bash(curl -sI -o /dev/null -w \"Status: %{http_code}\\\\nLocation: %{redirect_url}\\\\n\" https://mattthedesignguy.github.io/A-C-Landmark/)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(Select-String -Pattern \"\\\\.\\(png|jpg|jpeg|webp|svg\\)\")",
+      "Read(//c/Users/Matthew/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/5141edd3-863c-444a-b5a6-1be30ced1baf/2ac1b04c-e60e-4c7b-bb15-a0fd9ad79e50/skills/docx/**)",
+      "Bash(python scripts/office/unpack.py \"C:\\\\Users\\\\Matthew\\\\OneDrive - thedesignguy.com.au\\\\1. CLIENTS\\\\A&C Landmark\\\\Policies\\\\Cookie Policy.docx\" unpacked-cookie/)",
+      "Bash(python scripts/office/unpack.py \"C:\\\\Users\\\\Matthew\\\\OneDrive - thedesignguy.com.au\\\\1. CLIENTS\\\\A&C Landmark\\\\Policies\\\\MODERN SLAVERY POLICY.docx\" unpacked-slavery/)",
+      "Bash(python scripts/office/unpack.py \"C:\\\\Users\\\\Matthew\\\\OneDrive - thedesignguy.com.au\\\\1. CLIENTS\\\\A&C Landmark\\\\Policies\\\\Privacy Policy.docx\" unpacked-privacy/)",
+      "Bash(python scripts/office/unpack.py \"C:\\\\Users\\\\Matthew\\\\OneDrive - thedesignguy.com.au\\\\1. CLIENTS\\\\A&C Landmark\\\\Policies\\\\Website Disclaimer.docx\" unpacked-disclaimer/)",
+      "Bash(python scripts/office/unpack.py \"C:\\\\Users\\\\Matthew\\\\OneDrive - thedesignguy.com.au\\\\1. CLIENTS\\\\A&C Landmark\\\\Policies\\\\Website Terms of Use.docx\" unpacked-terms/)"
     ]
   }
 }

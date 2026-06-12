@@ -7,6 +7,11 @@ export default defineConfig({
   // Served from custom domain root: https://aclandmark.thedesignguy.com.au/
   base: '/',
 
+  server: {
+    port: 5175,
+    strictPort: true,
+  },
+
   plugins: [
     react(),
     tailwindcss(),
