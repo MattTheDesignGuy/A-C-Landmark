@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router'
 import { Menu, X } from 'lucide-react'
-
 const BASE = import.meta.env.BASE_URL
 
 export default function Navigation() {
@@ -34,7 +33,7 @@ export default function Navigation() {
             <img
               src={`${BASE}${transparent ? 'AC-white-logo.webp' : 'AC-black-logo.webp'}`}
               alt="A&C Landmark"
-              className="h-10 w-auto transition-opacity duration-300"
+              className="h-[60px] w-auto transition-opacity duration-300"
             />
           </Link>
 
