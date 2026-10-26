@@ -66,7 +66,7 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/40" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+        <div className="relative z-10 max-w-6xl mx-auto w-full px-6 xl:w-[85.6%] xl:max-w-none xl:px-0 py-32">
           <p className="text-gold tracking-[0.25em] uppercase text-sm font-semibold mb-6">
             Welcome to A&C Landmark
           </p>
@@ -96,7 +96,7 @@ export default function HomePage() {
 
       {/* About Us Section */}
       <section className="bg-warm-white py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto w-full px-6 xl:w-[85.6%] xl:max-w-none xl:px-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div className="flex gap-6">
               <div className="w-1 bg-gold rounded-full shrink-0 self-stretch hidden sm:block" />
@@ -124,7 +124,7 @@ export default function HomePage() {
 
       {/* Our People Section */}
       <section className="bg-navy py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto w-full px-6 xl:w-[85.6%] xl:max-w-none xl:px-0">
           <h2 className="font-heading text-4xl lg:text-5xl font-bold text-white text-center mb-16">
             Our People
           </h2>
@@ -151,11 +151,11 @@ export default function HomePage() {
 
       {/* Why Clients Choose Us */}
       <section className="bg-warm-white py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto w-full px-6 xl:w-[85.6%] xl:max-w-none xl:px-0">
           <h2 className="font-heading text-4xl lg:text-5xl font-bold text-navy text-center mb-16">
             Why Clients Choose A&C Landmark
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 wide:grid-cols-4 gap-6 lg:gap-8">
             {whyChooseUs.map((item) => (
               <div
                 key={item.title}
@@ -176,7 +176,7 @@ export default function HomePage() {
           backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(255,255,255,.1) 1px, transparent 1px)',
           backgroundSize: '30px 30px',
         }} />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto w-full px-6 xl:w-[85.6%] xl:max-w-none xl:px-0 text-center">
           <span className="font-heading text-gold text-6xl leading-none block mb-4">&ldquo;</span>
           <blockquote className="font-heading text-xl sm:text-2xl lg:text-3xl text-white italic leading-snug whitespace-nowrap">
             We pride ourselves on professionalism, clarity, and results.
@@ -189,11 +189,11 @@ export default function HomePage() {
 
       {/* Our Practice Areas Preview */}
       <section className="bg-warm-white py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto w-full px-6 xl:w-[85.6%] xl:max-w-none xl:px-0">
           <h2 className="font-heading text-4xl lg:text-5xl font-bold text-navy text-center mb-16">
             Our Practice Areas
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 wide:grid-cols-4 gap-6 lg:gap-8">
             {practiceAreas.map((area) => (
               <div
                 key={area.title}
@@ -223,7 +223,7 @@ export default function HomePage() {
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-navy/80" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto w-full px-6 xl:w-[85.6%] xl:max-w-none xl:px-0 text-center">
           <h2 className="font-heading text-4xl lg:text-5xl font-bold text-white mb-6">
             Ready to Take the Next Step?
           </h2>

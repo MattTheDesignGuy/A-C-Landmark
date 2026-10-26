@@ -13,6 +13,19 @@
 
   --font-heading: 'Playfair Display', serif;
   --font-body: 'DM Sans', sans-serif;
+
+  /* Desktop gutters: from 1280px each side margin is 7.2% of the viewport
+     and the content is 85.6%, at every width -- no cap, so the proportion
+     holds on any monitor. Below 1280px every Container is a flat px-6
+     (24px) gutter. See Container.
+     --breakpoint-wide (1680px) is where tile grids go 4-up. */
+  --breakpoint-wide: 105rem;
+}
+
+/* Running text keeps a readable measure now the layout is uncapped. */
+@media (min-width: 80rem) {
+  :where(p, li, blockquote, dd) { max-width: 75ch; }
+  :where([class*="text-center"]) :where(p, li, blockquote, dd) { margin-inline: auto; }
 }
 
 html {

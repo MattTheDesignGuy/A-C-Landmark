@@ -58,7 +58,7 @@ export default function ContactPage() {
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-navy/80" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-6xl mx-auto w-full px-6 xl:w-[85.6%] xl:max-w-none xl:px-0 text-center">
           <h1 className="font-heading text-5xl lg:text-6xl font-bold text-white mb-6">
             Get In Touch
           </h1>
@@ -70,7 +70,7 @@ export default function ContactPage() {
 
       {/* Contact Content */}
       <section className="bg-warm-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto w-full px-6 xl:w-[85.6%] xl:max-w-none xl:px-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Contact Form */}
             <div className="bg-white rounded-lg p-8 lg:p-10 shadow-sm">

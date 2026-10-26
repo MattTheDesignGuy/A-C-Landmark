@@ -7,7 +7,7 @@ export default function Footer() {
       {/* Gold accent line */}
       <div className="h-1 bg-gold" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-6xl mx-auto w-full px-6 xl:w-[85.6%] xl:max-w-none xl:px-0 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
@@ -70,7 +70,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="max-w-6xl mx-auto w-full px-6 xl:w-[85.6%] xl:max-w-none xl:px-0 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
             &copy; 2026 A&C Landmark. All rights reserved.
           </p>

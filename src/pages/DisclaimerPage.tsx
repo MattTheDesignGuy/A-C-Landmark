@@ -6,14 +6,14 @@ export default function DisclaimerPage() {
       <section className="relative pt-32 pb-16 lg:pb-20 overflow-hidden">
         <img src={`${BASE}hero-services.png`} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
         <div className="absolute inset-0 bg-navy/80" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-6xl mx-auto w-full px-6 xl:w-[85.6%] xl:max-w-none xl:px-0 text-center">
           <h1 className="font-heading text-5xl lg:text-6xl font-bold text-white mb-6">Website Disclaimer</h1>
           <p className="text-gray-200 text-lg sm:text-xl max-w-2xl mx-auto">Last updated: June 2026</p>
         </div>
       </section>
 
       <section className="bg-warm-white py-16 lg:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-near-black/80 text-lg leading-relaxed">
+        <div className="max-w-4xl mx-auto w-full px-6 xl:w-[85.6%] xl:max-w-none xl:px-0 space-y-10 text-near-black/80 text-lg leading-relaxed">
 
           <div>
             <h2 className="font-heading text-2xl font-bold text-navy mb-4">General Information Only</h2>
